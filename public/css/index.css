@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(104, 7, 99);
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.elemento{
+margin-top: 3%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.flex-button{
+    display: flex;
+    flex-direction: row;
+
+}
+.flex-button a{
+    margin-right: 10px;
+}
+
+.btn-modal{
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    border: none;
+    outline: none;
+    background-color: rgb(104, 7, 99);
+    color: white;
+    border-radius: 50px;
+    height: 70px;
+    width: 70px;
+    font-size: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.btn-modal:hover{
+    background-color: rgb(49, 4, 32);
+}
+
+.form-control{
+    margin-bottom: 5px;
+    color: blueviolet;
+}
+.form-control:focus{
+    box-shadow: 0px 0px 7px 1px rgb(119, 6, 95);
+    border: 1px solid blueviolet;
+}
+
+.paginate{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
