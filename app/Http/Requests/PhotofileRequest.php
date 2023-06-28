@@ -24,12 +24,17 @@ class PhotofileRequest extends FormRequest
     public function rules()
     {
 
-        return [
+        $rules = [
         'titulo'=>'required|min:3|max:100',
         'autor'=>'required|min:3|max:100',
         'imagem'=>"required|file|mimes:png,jpg,jpeg",
         'descricao'=>'required|min:3|max:300'
         ];
+
+        if($this->method() == 'PUT'){
+         $rules['imagem'] =  "nullable|file|mimes:png,jpg,jpeg";
+        }
+        return $rules;
     }
 
     public function messages(){

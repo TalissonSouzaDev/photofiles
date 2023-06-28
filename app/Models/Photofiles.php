@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photofiles extends Model
 {
     use HasFactory;
-    protected $table="photofiles";
+    
     protected $fillable = [
         'titulo',
         'autor',

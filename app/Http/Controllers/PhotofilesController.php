@@ -9,6 +9,8 @@ use App\Http\Requests\PhotofileRequest;
 
 class PhotofilesController extends Controller
 {
+
+    protected $photofile;
     public function __construct(photofiles $photofile){
         return $this->photofile = $photofile;
     }
@@ -33,7 +35,7 @@ class PhotofilesController extends Controller
     public function store(PhotofileRequest $request)
     {
 
-        //dd($request->all());
+       
         $img = $request->file("imagem");
         $imagem = $img->store('imagem','public');
 
@@ -57,19 +59,28 @@ class PhotofilesController extends Controller
      */
     public function update(PhotofileRequest $request, $id)
     {
+
+        $imagem = '';
         if(!$photofile = $this->photofile->find($id)->first()){
             return redirect()->back();
         }
-        if($request->file("imagem")){
-                Storage::disk('public')->delete($photofile->imagem);
+
+        if(!empty($request->file('imagem'))){
+          
+            Storage::disk('public')->delete($photofile->imagem);
+            $img = $request->file("imagem");
+            $imagem = $img->store('imagem','public');
         }
-        $img = $request->file("imagem");
-        $imagem = $img->store('imagem','public');
+      
+     
+
+   
+       
 
         $photofile->update([
             'titulo'=>$request['titulo'],
             'autor'=>$request['autor'],
-            'imagem'=>$imagem == '' ? $photofile->imagem : $imagem,
+            'imagem'=> $imagem == '' ? $photofile->imagem : $imagem,
             'descricao'=>$request['descricao'],
         ]);
 
